@@ -78,7 +78,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h2>Widgets</h2>
+        <h2>Sample CP App</h2>
         <form>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Enter an entity:</label>
