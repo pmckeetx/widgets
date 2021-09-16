@@ -1,3 +1,9 @@
+FROM node:14.17.6 as base
+
+WORKDIR /code
+
+COPY package.json /code/package.json
+COPY package-lock.json /code/package-lock.json
 #
 # BUILDER
 #
@@ -12,6 +18,16 @@ RUN npm ci --production
 
 COPY . .
 RUN npm run build
+
+#
+# DEV
+#
+FROM base as dev
+
+RUN npm install
+
+COPY . .
+RUN npm run start
 
 #
 # PROD
